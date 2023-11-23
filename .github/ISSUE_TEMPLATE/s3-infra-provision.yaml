@@ -6,6 +6,6 @@ body:
     attributes:
       label: Nome do Projeto
       description: Nome do seu projeto, que será vinculado ao bucket (tudo minúsculo e sem espaços)
-      placeholder: ex: front-carrinho-compras
+      placeholder: 'ex: front-carrinho-compras'
     validations:
       required: true
