@@ -1,11 +1,11 @@
 name: S3 Infra Provision 
 description: Use this issue to create your project bucket on your AWS account
 body:  
-- type: input
-    id: bucket-name
-    attributes:
-      label: Nome do Projeto
-      description: Nome do seu projeto, que será vinculado ao bucket (tudo minúsculo e sem espaços)
-      placeholder: ex: front-carrinho-compras
-    validations:
-      required: true
+  - type: input
+      id: bucket-name
+      attributes:
+        label: Nome do Projeto
+        description: Nome do seu projeto, que será vinculado ao bucket (tudo minúsculo e sem espaços)
+        placeholder: ex: front-carrinho-compras
+      validations:
+        required: true
