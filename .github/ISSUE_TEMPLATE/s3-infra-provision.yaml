@@ -5,8 +5,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        COLOQUE NO NOME DA ISSUE O NOME DO SEU PROJETO
-        EXEMPLO: fron-carinho-compras
+        ## COLOQUE NO NOME DA ISSUE O NOME DO SEU PROJETO
+        **EXEMPLO**: front-carinho-compras
   - type: input
     id: squad
     attributes:
