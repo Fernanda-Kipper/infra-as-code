@@ -22,7 +22,7 @@ jobs:
 
       - name: Extract Bucket Name from Issue
         run: |
-          export BUCKET_NAME=$(echo "${{ github.event.issue.body }}" | awk -F '### Nome do Projeto\n\n' '{print $2}' | tr -d '\n')
+          export BUCKET_NAME=$(echo "${{ github.event.issue.body }}" | grep -oP '(?<=### Nome do Projeto\n\n)[^\n]+')
           echo "Bucket Name: $BUCKET_NAME"
           echo "BUCKET_NAME=$BUCKET_NAME" >> $GITHUB_ENV
 
