@@ -22,6 +22,9 @@ jobs:
 
       - name: Extract Bucket Name from Issue
         run: echo "BUCKET_NAME=${{ github.event.issue.body.inputs.bucket-name }}" >> $GITHUB_ENV
+      
+      - name: Debug BUCKET_NAME
+        run: echo "BUCKET_NAME=${BUCKET_NAME}"
 
       - name: Run Terraform
         run: |

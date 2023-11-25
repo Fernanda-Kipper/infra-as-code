@@ -7,7 +7,7 @@ variable "bucket_name" {
 }
 
 resource "aws_s3_bucket" "static_site_bucket" {
-  bucket = "static-site-${var.bucket_name}"  # substitua pelo nome desejado
+  bucket = "static-site-${var.bucket_name}"
 
   website {
     index_document = "index.html"
