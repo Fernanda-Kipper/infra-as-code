@@ -7,3 +7,13 @@ body:
       value: |
         COLOQUE NO NOME DA ISSUE O NOME DO SEU PROJETO
         EXEMPLO: fron-carinho-compras
+  - type: input
+    id: squad
+    attributes:
+      label: Nome da Squad
+      required: true
+  - type: input
+    id: responsible
+    attributes:
+      label: Responsável pelo Projeto
+      required: true
