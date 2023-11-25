@@ -22,9 +22,9 @@ jobs:
 
       - name: Extract Bucket Name from Issue
         run: |
-          bucket_name=$(echo "${{ github.event.issue.body }}" | grep -oP '(?<=### Nome do Projeto\n\n)[^\n]+')
-          echo "Bucket Name: $bucket_name"
-          echo "BUCKET_NAME=$bucket_name" >> $GITHUB_ENV
+          export BUCKET_NAME=$(echo "${{ github.event.issue.body }}" | awk -F '### Nome do Projeto\n\n' '{print $2}' | tr -d '\n')
+          echo "Bucket Name: $BUCKET_NAME"
+          echo "BUCKET_NAME=$BUCKET_NAME" >> $GITHUB_ENV
 
       - name: Run Terraform
         run: |
