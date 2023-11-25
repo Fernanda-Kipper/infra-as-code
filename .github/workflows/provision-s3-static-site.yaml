@@ -32,6 +32,3 @@ jobs:
           cd s3-static-website
           terraform init
           terraform apply -auto-approve -var="bucket_name=${{ env.BUCKET_NAME }}"
-
-      - name: Clean up Terraform files
-        run: rm rm -r /terraform/*
