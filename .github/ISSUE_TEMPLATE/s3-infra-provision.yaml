@@ -11,9 +11,11 @@ body:
     id: squad
     attributes:
       label: Nome da Squad
+    validations:
       required: true
   - type: input
     id: responsible
     attributes:
       label: Responsável pelo Projeto
+    validations:
       required: true
