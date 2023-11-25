@@ -33,19 +33,11 @@ jobs:
           terraform init
           terraform apply -auto-approve -var="bucket_name=${{ env.BUCKET_NAME }}"
 
-      - name: Comment on GitHub Issue after finish
-        run: |
-          issue_number=$(echo "${{ github.event.issue.number }}")
-          repo_owner=$(echo "${{ github.repository_owner }}")
-          repo_name=$(echo "${{ github.repository }}")
-          token="${{ secrets.GH_TOKEN }}"
-
-          comment_body="O bucket S3 foi criado com sucesso! 🎉"
-          
-          curl -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token $token" \
-            "https://api.github.com/repos/$repo_owner/$repo_name/issues/$issue_number/comments" \
-            -d "{\"body\": \"$comment_body\"}"
+      - name: Add comment
+        run: gh issue comment "$NUMBER" --repo "$REPO" --body "$BODY"
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+          BODY: >
+            O bucket S3 foi criado com sucesso! 🎉
