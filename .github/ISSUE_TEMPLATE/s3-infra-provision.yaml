@@ -1,2 +1,9 @@
 name: S3 Infra Provision
 description: Use this issue to create your project bucket on your AWS account
+title: "front-[preencha-o-nome-do-seu-projeto]"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        COLOQUE NO NOME DA ISSUE O NOME DO SEU PROJETO
+        EXEMPLO: fron-carinho-compras
