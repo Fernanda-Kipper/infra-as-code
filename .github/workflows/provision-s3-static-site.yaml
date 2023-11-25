@@ -34,4 +34,4 @@ jobs:
           terraform apply -auto-approve -var="bucket_name=${{ env.BUCKET_NAME }}"
 
       - name: Clean up Terraform files
-        run: rm s3-static-website.tf
+        run: rm s3-infra-provision.tf
