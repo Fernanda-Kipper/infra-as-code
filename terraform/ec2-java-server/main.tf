@@ -2,8 +2,18 @@ provider "aws" {
   region = "us-east-1" # substitua pela região desejada
 }
 
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+  }
+}
+
 resource "aws_instance" "java_server" {
-  ami           = "ami-0c55b159cbfafe1f0" # AMI Amazon Linux 2
+  ami           = data.aws_ami.amazon_linux.id
   instance_type = "t2.micro" # tipo da instância
 
   user_data = <<-EOF
