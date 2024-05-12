@@ -26,7 +26,7 @@ jobs:
           cd terraform
           cd ec2-java-server
           terraform init
-          terraform apply
+          terraform apply -auto-approve
 
       - name: Add comment
         run: gh issue comment "$NUMBER" --repo "$REPO" --body "$BODY"
