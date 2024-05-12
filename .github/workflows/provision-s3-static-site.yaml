@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: startsWith(github.event.issue.title, 'front')
 
     steps:
       - name: Checkout Repository
