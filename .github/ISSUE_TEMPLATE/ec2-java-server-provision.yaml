@@ -1,0 +1,21 @@
+name: EC2 Java Infra Provision
+description: Use this issue to create your EC2 Server with Java on your AWS account
+title: java-service-[preencha-o-nome-do-seu-projeto]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## COLOQUE NO NOME DA ISSUE O NOME DO SEU PROJETO
+        **EXEMPLO**: java-service-email-sender
+  - type: input
+    id: squad
+    attributes:
+      label: Nome da Squad
+    validations:
+      required: true
+  - type: input
+    id: responsible
+    attributes:
+      label: Responsável pelo Projeto
+    validations:
+      required: true

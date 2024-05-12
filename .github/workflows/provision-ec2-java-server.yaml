@@ -1,0 +1,38 @@
+name: Deploy EC2 Java Server
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.issue.title, 'java-service')
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1  # substitua pela região desejada
+
+      - name: Run Terraform
+        run: |
+          cd terraform
+          cd ec2-java-server
+          terraform init
+          terraform apply
+
+      - name: Add comment
+        run: gh issue comment "$NUMBER" --repo "$REPO" --body "$BODY"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+          BODY: >
+            O EC2 foi criado com sucesso! 🎉
